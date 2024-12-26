@@ -56,25 +56,14 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TrandingMoviesTableViewCell.identifier, for: indexPath) as? TrandingMoviesTableViewCell else {
-            return UITableViewCell()
-        }
-
-        let movie = movies[indexPath.row]
-        cell.TrandingMovieTitle.text = movie.original_title ?? "Unknown Title"
+        let cell = tableView.dequeueReusableCell(withIdentifier: TrandingMoviesTableViewCell.identifier, for: indexPath) as! TrandingMoviesTableViewCell
         
-        cell.ratingScore.text = "\(String(format: "%.1f", movie.vote_average))"
-
-        if let posterPath = movie.poster_path {
-            let posterURL = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
-            cell.TrandingMovieImage.kf.setImage(with: posterURL)
-        } else {
-            cell.TrandingMovieImage.image = UIImage(named: "placeholder")
-        }
-
+        let currentMovie = movies[indexPath.row]
+        cell.configure(with: currentMovie)
         return cell
     }
-
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController else { return }
