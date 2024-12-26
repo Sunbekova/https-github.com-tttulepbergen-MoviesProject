@@ -7,6 +7,7 @@
 
 import UIKit
 import AVKit
+import WebKit
 
 class MovieDetailsViewController: UIViewController {
 
@@ -15,8 +16,8 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var playTrailerButton: UIButton!
-
+    @IBOutlet weak var webView: WKWebView!
+    
     var selectedMovie: Title? // The movie passed from the previous screen
     private var trailerURL: URL?
 
@@ -43,35 +44,48 @@ class MovieDetailsViewController: UIViewController {
             posterImageView.image = UIImage(systemName: "photo.artframe") // Placeholder
         }
 
-        // Hide trailer button initially
-        playTrailerButton.isHidden = true
+        // Hide trailer initially
+        webView.isHidden = true
     }
 
     private func fetchTrailer() {
-        guard let movie = selectedMovie, let title = movie.original_title else { return }
+            guard let movie = selectedMovie, let title = movie.original_title else { return }
 
-        APICaller.shared.getMovie(with: title + " trailer") { [weak self] result in
-            switch result {
-            case .success(let videoElement):
-                DispatchQueue.main.async {
-                    let videoID = videoElement.id.videoId
-                    self?.trailerURL = URL(string: "https://www.youtube.com/watch?v=\(videoID)")
-                    self?.playTrailerButton.isHidden = false // Show the trailer button
+            APICaller.shared.getMovie(with: title + " trailer") { [weak self] result in
+                switch result {
+                case .success(let videoElement):
+                    DispatchQueue.main.async {
+                        let videoID = videoElement.id.videoId
+                        let embedHTML = """
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/\(videoID)" frameborder="0" allowfullscreen></iframe>
+                        """
+                        self?.webView.loadHTMLString(embedHTML, baseURL: nil)
+                        self?.webView.isHidden = false
+                    }
+                case .failure(let error):
+                    print("Failed to fetch YouTube trailer: \(error.localizedDescription)")
                 }
-            case .failure(let error):
-                print("Failed to fetch YouTube trailer: \(error.localizedDescription)")
             }
         }
-    }
+
+
 
     @IBAction func playTrailerButtonTapped(_ sender: UIButton) {
-        guard let trailerURL = trailerURL else { return }
-        
-        // Convert the YouTube link to an embeddable format
-        let embeddableURLString = trailerURL.absoluteString.replacingOccurrences(of: "watch?v=", with: "embed/")
-        guard let embeddableURL = URL(string: embeddableURLString) else { return }
+        guard let trailerURL = trailerURL else {
+            print("Trailer URL is nil")
+            return
+        }
 
-        // Play video using AVPlayerViewController
+        print("Playing Trailer URL: \(trailerURL.absoluteString)")
+
+        // Transform YouTube URL to embeddable format (optional)
+        let embeddableURLString = trailerURL.absoluteString.replacingOccurrences(of: "watch?v=", with: "embed/")
+        guard let embeddableURL = URL(string: embeddableURLString) else {
+            print("Invalid embeddable URL")
+            return
+        }
+
+        // AVPlayer setup
         let player = AVPlayer(url: embeddableURL)
         let playerViewController = AVPlayerViewController()
         playerViewController.player = player
@@ -80,4 +94,5 @@ class MovieDetailsViewController: UIViewController {
             player.play()
         }
     }
+
 }
