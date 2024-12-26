@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AVKit
 import WebKit
 
 class MovieDetailsViewController: UIViewController {
@@ -67,32 +66,5 @@ class MovieDetailsViewController: UIViewController {
                 }
             }
         }
-
-
-
-    @IBAction func playTrailerButtonTapped(_ sender: UIButton) {
-        guard let trailerURL = trailerURL else {
-            print("Trailer URL is nil")
-            return
-        }
-
-        print("Playing Trailer URL: \(trailerURL.absoluteString)")
-
-        // Transform YouTube URL to embeddable format (optional)
-        let embeddableURLString = trailerURL.absoluteString.replacingOccurrences(of: "watch?v=", with: "embed/")
-        guard let embeddableURL = URL(string: embeddableURLString) else {
-            print("Invalid embeddable URL")
-            return
-        }
-
-        // AVPlayer setup
-        let player = AVPlayer(url: embeddableURL)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-
-        present(playerViewController, animated: true) {
-            player.play()
-        }
-    }
 
 }

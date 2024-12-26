@@ -129,20 +129,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3V-RU-172">
-                                <rect key="frame" x="170.33333333333334" y="138" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1cb-07-FjW"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" image="play" catalog="system">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="playTrailerButtonTapped:" destination="7nO-h0-Sl7" eventType="touchUpInside" id="24g-u2-Xte"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwf-WL-MtM">
                                 <rect key="frame" x="16" y="279" width="361" height="35"/>
                                 <constraints>
@@ -178,12 +164,9 @@
                             <constraint firstItem="c4d-dZ-pvm" firstAttribute="leading" secondItem="BQX-Pi-YRI" secondAttribute="leading" constant="16" id="SJT-4s-xcc"/>
                             <constraint firstItem="IaH-lv-wlN" firstAttribute="top" secondItem="Dwf-WL-MtM" secondAttribute="bottom" constant="20" id="aTB-BV-cC6"/>
                             <constraint firstItem="BQX-Pi-YRI" firstAttribute="trailing" secondItem="3IB-8B-J87" secondAttribute="trailing" constant="113" id="b2p-zS-5qq"/>
-                            <constraint firstItem="W3V-RU-172" firstAttribute="top" secondItem="BQX-Pi-YRI" secondAttribute="top" constant="79" id="e1V-pY-Z6f"/>
                             <constraint firstItem="ed5-Ln-sC4" firstAttribute="top" secondItem="IaH-lv-wlN" secondAttribute="bottom" constant="10" id="h8s-1j-dVG"/>
                             <constraint firstItem="BQX-Pi-YRI" firstAttribute="bottom" secondItem="FnR-UZ-xi7" secondAttribute="bottom" id="iBD-zy-Gm2"/>
-                            <constraint firstItem="BQX-Pi-YRI" firstAttribute="trailing" secondItem="W3V-RU-172" secondAttribute="trailing" constant="172.53999999999999" id="iu3-6T-F3J"/>
                             <constraint firstItem="FnR-UZ-xi7" firstAttribute="leading" secondItem="BQX-Pi-YRI" secondAttribute="leading" constant="16" id="k4c-UG-sOm"/>
-                            <constraint firstItem="W3V-RU-172" firstAttribute="leading" secondItem="BQX-Pi-YRI" secondAttribute="leading" constant="170.46000000000001" id="kyp-Z6-7sM"/>
                             <constraint firstItem="EMo-Za-68l" firstAttribute="leading" secondItem="BQX-Pi-YRI" secondAttribute="leading" constant="60" id="qun-lg-nxe"/>
                             <constraint firstItem="F7a-bV-b18" firstAttribute="top" secondItem="Dwf-WL-MtM" secondAttribute="bottom" constant="20" id="skd-xR-Mfp"/>
                             <constraint firstItem="EMo-Za-68l" firstAttribute="top" secondItem="ed5-Ln-sC4" secondAttribute="bottom" constant="16" id="tpj-vi-LIa"/>
@@ -358,7 +341,6 @@
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
-        <image name="play" catalog="system" width="117" height="128"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
