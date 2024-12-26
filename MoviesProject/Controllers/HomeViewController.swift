@@ -40,7 +40,6 @@ class HomeViewController: UIViewController {
     }
 }
 
-// MARK: - UITableViewDataSource & UITableViewDelegate
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -57,14 +56,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Handle cell selection logic here if needed
-        let selectedMovie = movieList[indexPath.row]
-        
-        // Navigate to a details view controller (if applicable)
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        if let detailedVC = storyboard.instantiateViewController(withIdentifier: "movieDetailsVC") as? MovieDetailsPage {
-//            detailedVC.configure(with: selectedMovie)
-//            navigationController?.pushViewController(detailedVC, animated: true)
-//        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController else { return }
+
+        vc.selectedMovie = movieList[indexPath.row] // Pass the selected movie
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

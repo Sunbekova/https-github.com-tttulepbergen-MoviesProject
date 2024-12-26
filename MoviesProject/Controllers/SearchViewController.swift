@@ -77,10 +77,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        guard let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else { return }
-//
-//        let movie = movies[indexPath.row]
-//        vc.movieId = "\(movie.id)"
-//        navigationController?.pushViewController(vc, animated: true)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController else { return }
+
+        vc.selectedMovie = movies[indexPath.row] // Pass the selected movie
+        navigationController?.pushViewController(vc, animated: true)
     }
+
 }

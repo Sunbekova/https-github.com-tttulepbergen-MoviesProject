@@ -27,7 +27,7 @@ class TrandingMoviesTableViewCell: UITableViewCell {
             let imageURL = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") // TMDB image URL
             TrandingMovieImage.kf.setImage(with: imageURL) // Using Kingfisher
         } else {
-            TrandingMovieImage.image = UIImage(named: "placeholder") // A default placeholder image
+            TrandingMovieImage.image = UIImage(systemName: "photo.artframe") // A default placeholder image
         }
     }
     
