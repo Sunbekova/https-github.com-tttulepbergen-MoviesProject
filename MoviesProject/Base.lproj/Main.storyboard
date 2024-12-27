@@ -11,7 +11,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="MoviesProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="MoviesProject" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +179,7 @@
                         <outlet property="ratingLabel" destination="EMo-Za-68l" id="VGV-lb-Psg"/>
                         <outlet property="releaseDateLabel" destination="ed5-Ln-sC4" id="0zp-RW-Ivo"/>
                         <outlet property="titleLabel" destination="IaH-lv-wlN" id="MY9-lV-KhV"/>
-                        <outlet property="webView" destination="c4d-dZ-pvm" id="ySf-8f-cgz"/>
+                        <outlet property="webView" destination="c4d-dZ-pvm" id="dt2-cq-tCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KtG-2N-5ov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
