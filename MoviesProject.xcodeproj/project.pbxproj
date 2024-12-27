@@ -95,16 +95,24 @@
 		1982ADA92D197F2500C6B113 /* MoviesProject */ = {
 			isa = PBXGroup;
 			children = (
+				19D593722D1E8339004A6AD0 /* Base */,
 				192C26FC2D1C74DC0022A14F /* Manager */,
 				192C26F52D1C6D8F0022A14F /* Controllers */,
-				1982ADAA2D197F2500C6B113 /* AppDelegate.swift */,
-				1982ADAC2D197F2500C6B113 /* SceneDelegate.swift */,
 				1982ADB02D197F2500C6B113 /* Main.storyboard */,
 				1982ADB32D197F2600C6B113 /* Assets.xcassets */,
 				1982ADB52D197F2600C6B113 /* LaunchScreen.storyboard */,
-				1982ADB82D197F2600C6B113 /* Info.plist */,
 			);
 			path = MoviesProject;
+			sourceTree = "<group>";
+		};
+		19D593722D1E8339004A6AD0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1982ADAC2D197F2500C6B113 /* SceneDelegate.swift */,
+				1982ADAA2D197F2500C6B113 /* AppDelegate.swift */,
+				1982ADB82D197F2600C6B113 /* Info.plist */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		19ED34752D1D5EE10061B842 /* Models */ = {
